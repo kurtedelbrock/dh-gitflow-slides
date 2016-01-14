@@ -40,7 +40,180 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				
+				<section data-markdown>
+					<script type="text/template">
+						# Gitflow
+						a premier for better Git collaboration
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 1. Developers Work In Branches
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Why?
+						Branches are lightweight
+						<br>
+						(they <em>aren't</em> duplicates of master on disk)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## SVN vs. Git Branches
+						(size of subversion branch)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## SVN vs. Git Branches
+						(size of git branch)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Why?
+						Branches don't interrupt your teammates
+					</script>
+				</section>
+				<section data-markdown>
+					## Branch Naming&mdash;Features
+					```feature/[story-number]-short-feature-name```
+				</section>
+				<section data-markdown>
+					## Branch Naming&mdash;Bugs
+					```bugs/[story-number]-short-bug-description```
+				</section>
+				<section data-markdown>
+					## Branch Naming&mdash;Spikes/Random
+					```spike/[story-number]-spike-name```
+				</section>
+				<section data-markdown>
+					## Why Use a Slash?
+					[image of Tower folders]
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## * How to Make A Branch
+						```git checkout -b feature/12-my-shiny-feature```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## * Developer 1 (Bob) Completes His Task
+						```git add . && git commit -m 'commit message'```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Now What? Depends:
+						* Code review
+						* QA
+						* Product manager validation
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Often Review Will Include A Pull Request (PR)
+						More on PRs in a bit
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 2. Push Code to Repo For Review
+						```git push```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 3. Open a PR
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 4. Merge Completed and Tested Features To `develop` Branch
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## What is ```develop```?
+						* Branch fulled with completed, tested, yet-to-be released features
+						* Refers to staging environment
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## A Word On "Broken" Commits
+						* Feel free to commit broken code to your development branches
+						* Don't even think about merging broken code to `develop`
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## How to Merge *
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Squash Your Commits (or not)
+						`git rebase -i HEAD~2`
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Backmerge First *
+						```git checkout develop && git pull && git checkout [my-branch] && git merge develop```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Then Merge Your Code *
+						```git checkout develop && git merge [my-branch]```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Time Passes
+						...and now we want to deploy to production
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 5. Merge Code to `master` Branch
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## What is master?
+						* Where the currently deployed, production application code lives
+						* Generally CI servers will deploy application directly from `master`
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## All Commits in `Master` Are Tagged
+						More on that soon
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 6. Merge to Master (But Backmerge First) *
+						```git checkout master && git merge develop```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 7. Tag Your Commit
+						```git tag -a v1.0 -m "my version 1.0"```
+						```git push origin v1.0```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Q+A
+					</script>
+				</section>
 			</div>
 
 		</div>
